@@ -7,6 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         let scripts2load = {
+            "https://raw.githubusercontent.com/akinuri/js-lib/master/html/qs.js" : {
+                import : ["qs", "qsa"],
+            },
             "https://raw.githubusercontent.com/alexei/sprintf.js/master/dist/sprintf.min.js" : {
                 import : ["sprintf"],
             },
@@ -97,11 +100,11 @@
 <script>
     window.addEventListener("AllScriptsLoaded", () => {
         applyCSS();
-        let cssOutput = document.querySelector("#css-output");
+        let cssOutput = qs("#css-output");
         cssOutput.textContent = generateCSSText(".scrollbar");
         hljs.highlightAll();
     });
-    let copyCssBtn = document.querySelector("#copy-css-btn");
+    let copyCssBtn = qs("#copy-css-btn");
     copyCssBtn.addEventListener("click", () => {
         navigator.clipboard.writeText(copyCssBtn.parentElement.querySelector("pre").innerText);
     });
