@@ -64,7 +64,75 @@
     
     <div class="bg-white p-4 shadow rounded flex gap-4 flex-col">
         <h2 class="text-lg font-medium">Controls</h2>
-        <p class="bg-yellow-500/10 text-yellow-800 px-2 py-1 rounded border border-yellow-500/10">
+        <h3 class="font-medium border-b-[1px] border-b-slate-200">scrollbar</h3>
+        <table>
+            <tr>
+                <td>Width</td>
+                <td>
+                    <input
+                        type="number"
+                        id="scrollbar-width-input"
+                        step="1"
+                        min="0"
+                        max="32"
+                        value="10"
+                        class="border rounded px-1 bg-slate-50 text-slate-600 placeholder:text-slate-300 hover:border-blue-300 hover:placeholder:text-slate-400/60 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-300 focus:placeholder:text-slate-400/70"
+                        >
+                    px
+                </td>
+                <td>
+                    <input
+                        type="range"
+                        id="scrollbar-width-range"
+                        step="1"
+                        min="0"
+                        max="32"
+                        value="10"
+                        list="scrollbar-width-range-markers"
+                        class="w-[200px]"
+                        >
+                    <datalist id="scrollbar-width-range-markers">
+                        <option value="0"></option>
+                        <option value="4"></option>
+                        <option value="8"></option>
+                        <option value="12"></option>
+                        <option value="16"></option>
+                        <option value="20"></option>
+                        <option value="24"></option>
+                        <option value="28"></option>
+                        <option value="32"></option>
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td>Height</td>
+                <td>
+                    <input
+                        type="number"
+                        id="scrollbar-height-input"
+                        step="1"
+                        min="0"
+                        max="32"
+                        value="10"
+                        class="border rounded px-1 bg-slate-50 text-slate-600 placeholder:text-slate-300 hover:border-blue-300 hover:placeholder:text-slate-400/60 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-300 focus:placeholder:text-slate-400/70"
+                        >
+                    px
+                </td>
+                <td>
+                    <input
+                        type="range"
+                        id="scrollbar-height-range"
+                        step="1"
+                        min="0"
+                        max="32"
+                        value="10"
+                        list="scrollbar-width-range-markers"
+                        class="w-[200px]"
+                        >
+                </td>
+            </tr>
+        </table>
+        <p class="mt-4 bg-yellow-500/10 text-yellow-800 px-2 py-1 rounded border border-yellow-500/10">
             To be added.
         </p>
     </div>
@@ -100,16 +168,15 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 
 <script src="css.js"></script>
+<script src="controls.js"></script>
 <script>
     window.addEventListener("AllScriptsLoaded", () => {
         applyCSS();
-        let cssOutput = qs("#css-output");
-        cssOutput.textContent = generateCSSText(".scrollbar");
-        hljs.highlightAll();
-    });
-    let copyCssBtn = qs("#copy-css-btn");
-    on(copyCssBtn, "click", () => {
-        navigator.clipboard.writeText(copyCssBtn.parentElement.querySelector("pre").innerText);
+        outputCSS();
+        let copyCssBtn = qs("#copy-css-btn");
+        on(copyCssBtn, "click", () => {
+            navigator.clipboard.writeText(copyCssBtn.parentElement.querySelector("pre").innerText);
+        });
     });
 </script>
 

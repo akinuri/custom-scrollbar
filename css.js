@@ -1,15 +1,15 @@
 let css = {
     "scrollbar": {
-        "width": "10px",
-        "height": "10px",
+        "width" : "10px",
+        "height" : "10px",
     },
     "scrollbar-track" : {
         "background-color" : "hsla(0, 0%, 95%, 0.9)",
-        "border-radius" : "0.25rem",
+        "border-radius" : "4px",
     },
     "scrollbar-thumb" : {
         "background-color" : "hsla(0, 0%, 75%, 0.95)",
-        "border-radius" : "0.25rem",
+        "border-radius" : "4px",
         "border" : {
             "width" : "2px",
             "style" : "solid",
