@@ -10,13 +10,16 @@
             "https://raw.githubusercontent.com/akinuri/js-lib/master/html/qs.js" : {
                 import : ["qs", "qsa"],
             },
+            "https://raw.githubusercontent.com/akinuri/js-lib/master/event/on.js" : {
+                import : ["on"],
+            },
             "https://raw.githubusercontent.com/alexei/sprintf.js/master/dist/sprintf.min.js" : {
                 import : ["sprintf"],
             },
         };
         for (let script in scripts2load) {
             let config = scripts2load[script];
-            fetch(script)
+            fetch(script, {cache: "no-cache"})
                 .then((response) => response.text())
                 .then((text) => {
                     eval(text);
@@ -105,7 +108,7 @@
         hljs.highlightAll();
     });
     let copyCssBtn = qs("#copy-css-btn");
-    copyCssBtn.addEventListener("click", () => {
+    on(copyCssBtn, "click", () => {
         navigator.clipboard.writeText(copyCssBtn.parentElement.querySelector("pre").innerText);
     });
 </script>
