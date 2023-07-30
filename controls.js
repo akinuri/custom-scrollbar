@@ -25,31 +25,23 @@ let controls = {
 };
 
 window.addEventListener("AllScriptsLoaded", () => {
-    controls.scrollbar.width = qs("#scrollbar-width-input");
+    controls.scrollbar.width  = qs("#scrollbar-width-input");
     controls.scrollbar.height = qs("#scrollbar-height-input");
     
-    on([
-        controls.scrollbar.width,
-        qs("#scrollbar-width-range"),
-    ], "input", function () {
+    on([controls.scrollbar.width, qs("#scrollbar-width-range")], "input", function () {
         if (!["0", "", NaN].includes(this.value)) {
             css.scrollbar.width = this.value + "px";
         }
     });
-    on([
-        controls.scrollbar.height,
-        qs("#scrollbar-height-range"),
-    ], "input", function () {
+    on([controls.scrollbar.height, qs("#scrollbar-height-range")], "input", function () {
         if (!["0", "", NaN].includes(this.value)) {
             css.scrollbar.height = this.value + "px";
         }
     });
     
     on([
-        controls.scrollbar.width,
-        qs("#scrollbar-width-range"),
-        controls.scrollbar.height,
-        qs("#scrollbar-height-range"),
+        controls.scrollbar.width,  qs("#scrollbar-width-range"),
+        controls.scrollbar.height, qs("#scrollbar-height-range"),
     ], "input", function () {
         applyCSS();
         outputCSS();
