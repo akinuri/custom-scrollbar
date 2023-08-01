@@ -25,11 +25,17 @@ let controls = {
 };
 
 window.addEventListener("AllScriptsLoaded", () => {
+    
     controls.scrollbar.width  = qs("#scrollbar-width-input");
     controls.scrollbar.height = qs("#scrollbar-height-input");
     
     controls["scrollbar-track"]["background-color"] = qs("#track-background-input");
     controls["scrollbar-track"]["border-radius"]    = qs("#track-radius-input");
+    
+    syncNumberInputAndRange(controls.scrollbar.width, qs("#scrollbar-width-range"));
+    syncNumberInputAndRange(controls.scrollbar.height, qs("#scrollbar-height-range"));
+    syncColorAndTextInput(controls["scrollbar-track"]["background-color"], qs("#track-background-text"));
+    syncNumberInputAndRange(controls["scrollbar-track"]["border-radius"], qs("#track-radius-range"));
     
     on([controls.scrollbar.width, qs("#scrollbar-width-range")], "input", function () {
         if (!["0", "", NaN].includes(this.value)) {
@@ -60,11 +66,6 @@ window.addEventListener("AllScriptsLoaded", () => {
         applyCSS();
         outputCSS();
     });
-    
-    syncNumberInputAndRange(controls.scrollbar.width, qs("#scrollbar-width-range"));
-    syncNumberInputAndRange(controls.scrollbar.height, qs("#scrollbar-height-range"));
-    syncColorAndTextInput(controls["scrollbar-track"]["background-color"], qs("#track-background-text"));
-    syncNumberInputAndRange(controls["scrollbar-track"]["border-radius"], qs("#track-radius-range"));
 });
 
 function syncColorAndTextInput(color, textInput) {
