@@ -61,8 +61,9 @@ window.addEventListener("AllScriptsLoaded", () => {
         qs("#preview-card").style.setProperty("--preview-bg", this.value);
     });
     
-    on([controls["scrollbar-track"]["background-color"]], "input", function () {
+    on(controls["scrollbar-track"]["background-color"], "input", function () {
         css["scrollbar-track"]["background-color"] = getTrackBackground();
+        css["scrollbar-corner"]["background-color"] = getTrackBackground();
     });
     on([controls["scrollbar-track"]["border-radius"], qs("#track-radius-range")], "input", function () {
         if (!["0", "", NaN].includes(this.value)) {
@@ -90,9 +91,11 @@ window.addEventListener("AllScriptsLoaded", () => {
     
     on(trackBackgroundAlphaInput, "input", () => {
         css["scrollbar-track"]["background-color"] = getTrackBackground();
+        css["scrollbar-corner"]["background-color"] = getTrackBackground();
     });
     on(trackBackgroundAlphaRange, "input", () => {
         css["scrollbar-track"]["background-color"] = getTrackBackground();
+        css["scrollbar-corner"]["background-color"] = getTrackBackground();
     });
     
     on([
