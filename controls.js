@@ -1,4 +1,7 @@
 let controls = {
+    "preview" : {
+        "background-color" : null,
+    },
     "scrollbar" : {
         "width" : null,
         "height" : null,
@@ -26,6 +29,8 @@ let controls = {
 
 window.addEventListener("AllScriptsLoaded", () => {
     
+    controls.preview["background-color"] = qs("#preview-background-input");
+    
     controls.scrollbar.width  = qs("#scrollbar-width-input");
     controls.scrollbar.height = qs("#scrollbar-height-input");
     
@@ -50,6 +55,10 @@ window.addEventListener("AllScriptsLoaded", () => {
         if (!["0", "", NaN].includes(this.value)) {
             css.scrollbar.height = this.value + "px";
         }
+    });
+    
+    on(controls.preview["background-color"], "input", function () {
+        qs("#preview-card").style.setProperty("--preview-bg", this.value);
     });
     
     on([controls["scrollbar-track"]["background-color"]], "input", function () {
