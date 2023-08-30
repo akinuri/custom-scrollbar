@@ -30,7 +30,7 @@ let controls = {
     },
 };
 
-window.addEventListener("AllScriptsLoaded", () => {
+sl.onAllLoaded(() => {
     
     controls.preview["background-color"] = qs("#preview-background-input");
     

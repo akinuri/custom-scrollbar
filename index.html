@@ -5,46 +5,19 @@
     <title>Custom Scrollbar Designer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script-loader.js"></script>
     <script>
-        let ScriptLoader = {
-            scripts : {
-                "https://raw.githubusercontent.com/akinuri/js-lib/master/html/qs.js" : {
-                    import : ["qs", "qsa"],
-                },
-                "https://raw.githubusercontent.com/akinuri/js-lib/master/event/on.js" : {
-                    import : ["on"],
-                },
-                "https://raw.githubusercontent.com/alexei/sprintf.js/master/dist/sprintf.min.js" : {
-                    import : ["sprintf"],
-                },
+        sl = new ScriptLoader({
+            "https://raw.githubusercontent.com/akinuri/js-lib/master/html/qs.js" : {
+                import : ["qs", "qsa"],
             },
-            load : function () {
-                window.addEventListener("ScriptLoaded", () => {
-                    if (ScriptLoader.areAllScriptsLoaded()) {
-                        window.dispatchEvent(new CustomEvent("AllScriptsLoaded"));
-                    }
-                });
-                for (let scriptURL in ScriptLoader.scripts) {
-                    let config = ScriptLoader.scripts[scriptURL];
-                    if (config.loaded != true) {
-                        fetch(scriptURL, {cache: "no-cache"})
-                            .then((response) => response.text())
-                            .then((text) => {
-                                eval(text);
-                                config.loaded = true;
-                                config.import.forEach(item => {
-                                    window[item] = eval(item);
-                                });
-                                window.dispatchEvent(new CustomEvent("ScriptLoaded", {detail: {src: scriptURL}}));
-                            });
-                    }
-                }
+            "https://raw.githubusercontent.com/akinuri/js-lib/master/event/on.js" : {
+                import : ["on"],
             },
-            areAllScriptsLoaded : function () {
-                return Object.values(ScriptLoader.scripts).every(config => config.loaded);
+            "https://raw.githubusercontent.com/alexei/sprintf.js/master/dist/sprintf.min.js" : {
+                import : ["sprintf"],
             },
-        };
-        ScriptLoader.load();
+        });
     </script>
 </head>
 <body class="bg-slate-100">
@@ -352,7 +325,7 @@
 <script src="css.js"></script>
 <script src="controls.js"></script>
 <script>
-    window.addEventListener("AllScriptsLoaded", () => {
+    sl.onAllLoaded(() => {
         applyCSS();
         outputCSS();
         let copyCssBtn = qs("#copy-css-btn");
