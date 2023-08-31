@@ -76,7 +76,7 @@ sl.onAllLoaded(() => {
     controls.scrollbar.width.range = qs("#scrollbar-width-range");
     syncNumberInputAndRange(controls.scrollbar.width.box, controls.scrollbar.width.range);
     on([controls.scrollbar.width.box, controls.scrollbar.width.range], "input", function () {
-        if (!["0", "", NaN].includes(this.value)) {
+        if (!["", NaN].includes(this.value)) {
             css.scrollbar.width = this.value + "px";
         }
     });
@@ -85,7 +85,7 @@ sl.onAllLoaded(() => {
     controls.scrollbar.height.range = qs("#scrollbar-height-range");
     syncNumberInputAndRange(controls.scrollbar.height.box, controls.scrollbar.height.range);
     on([controls.scrollbar.height.box, controls.scrollbar.height.range], "input", function () {
-        if (!["0", "", NaN].includes(this.value)) {
+        if (!["", NaN].includes(this.value)) {
             css.scrollbar.height = this.value + "px";
         }
     });
@@ -123,7 +123,7 @@ sl.onAllLoaded(() => {
         controls["scrollbar-track"]["border-radius"].box,
         controls["scrollbar-track"]["border-radius"].range,
     ], "input", function () {
-        if (!["0", "", NaN].includes(this.value)) {
+        if (!["", NaN].includes(this.value)) {
             css["scrollbar-track"]["border-radius"] = this.value + "px";
         }
     });
@@ -165,7 +165,7 @@ sl.onAllLoaded(() => {
         controls["scrollbar-corner"]["border-radius"].box,
         controls["scrollbar-corner"]["border-radius"].range,
     ], "input", function () {
-        if (!["0", "", NaN].includes(this.value)) {
+        if (!["", NaN].includes(this.value)) {
             css["scrollbar-corner"]["border-radius"] = this.value + "px";
         }
     });
@@ -207,7 +207,7 @@ sl.onAllLoaded(() => {
         controls["scrollbar-thumb"]["border-radius"].box,
         controls["scrollbar-thumb"]["border-radius"].range,
     ], "input", function () {
-        if (!["0", "", NaN].includes(this.value)) {
+        if (!["", NaN].includes(this.value)) {
             css["scrollbar-thumb"]["border-radius"] = this.value + "px";
         }
     });
