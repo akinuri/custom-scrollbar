@@ -51,7 +51,10 @@ let controls = {
             "range" : null,
         },
         "border" : {
-            "width" : null,
+            "width" : {
+                "box" : null,
+                "range" : null,
+            },
             "style" : null,
             "color" : null,
         },
@@ -216,6 +219,21 @@ sl.onAllLoaded(() => {
         controls["scrollbar-thumb"]["border-radius"].range,
     );
     
+    controls["scrollbar-thumb"]["border"]["width"].box   = qs("#thumb-border-width-input");
+    controls["scrollbar-thumb"]["border"]["width"].range = qs("#thumb-border-width-range");
+    on([
+        controls["scrollbar-thumb"]["border"]["width"].box,
+        controls["scrollbar-thumb"]["border"]["width"].range,
+    ], "input", function () {
+        if (!["", NaN].includes(this.value)) {
+            css["scrollbar-thumb"]["border"]["width"] = this.value + "px";
+        }
+    });
+    syncNumberInputAndRange(
+        controls["scrollbar-thumb"]["border"]["width"].box,
+        controls["scrollbar-thumb"]["border"]["width"].range,
+    );
+    
     
     on([
         controls.scrollbar.width.box,
@@ -244,6 +262,9 @@ sl.onAllLoaded(() => {
         
         controls["scrollbar-thumb"]["border-radius"].box,
         controls["scrollbar-thumb"]["border-radius"].range,
+        
+        controls["scrollbar-thumb"]["border"]["width"].box,
+        controls["scrollbar-thumb"]["border"]["width"].range,
     ], "input", function () {
         applyCSS();
         outputCSS();
