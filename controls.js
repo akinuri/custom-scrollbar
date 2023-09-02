@@ -46,6 +46,7 @@ let controls = {
                 "range" : null,
             },
         },
+        "background-clip" : null,
         "border-radius" : {
             "box" : null,
             "range" : null,
@@ -273,6 +274,13 @@ sl.onAllLoaded(() => {
         );
     });
     
+    controls["scrollbar-thumb"]["background-clip"] = qs("#thumb-background-clip-select");
+    on([
+        controls["scrollbar-thumb"]["background-clip"],
+    ], "input", function () {
+        css["scrollbar-thumb"]["background-clip"] = this.value;
+    });
+    
     
     on([
         controls.scrollbar.width.box,
@@ -310,6 +318,8 @@ sl.onAllLoaded(() => {
         controls["scrollbar-thumb"]["border"]["color"].box,
         controls["scrollbar-thumb"]["border"]["color"].alpha.box,
         controls["scrollbar-thumb"]["border"]["color"].alpha.range,
+        
+        controls["scrollbar-thumb"]["background-clip"],
     ], "input", function () {
         applyCSS();
         outputCSS();
