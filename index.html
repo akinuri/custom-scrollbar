@@ -26,11 +26,17 @@
     
     <h1 class="font-medium mx-auto w-fit text-2xl mb-4">Custom Scrollbar Designer</h1>
     
-    <div class="container mx-auto gap-6 p-4 text-slate-700 | grid | lg:gap-4 lg:grid-rows-none lg:grid-cols-2 | 2xl:grid-cols-3">
+    <div
+        class="container mx-auto gap-6 p-4 text-slate-700 grid lg:gap-4 lg:grid-rows-none lg:grid-cols-2 2xl:grid-cols-3"
+        >
         
         <div class="flex flex-col gap-1">
             <h2 class="text-lg font-medium pl-1">Preview</h2>
-            <div id="preview-card" class="p-4 shadow rounded flex gap-4 flex-col" style="--preview-bg: white; background-color: var(--preview-bg)">
+            <div
+                id="preview-card"
+                class="p-4 shadow rounded flex gap-4 flex-col"
+                style="--preview-bg: white; background-color: var(--preview-bg)"
+                >
                 <div class="overflow-auto min-h-[20rem] max-h-[60vh] preview">
                     <div class="flex gap-4 flex-col w-[125%]">
                         
@@ -451,8 +457,13 @@
         
         <div class="flex flex-col gap-1">
             <h2 class="text-lg font-medium pl-1">CSS</h2>
-            <div class="bg-white p-4 shadow rounded flex gap-4 flex-col relative min-h-[20rem] lg:col-start-1 lg:col-end-3 2xl:col-start-auto 2xl:col-end-auto">
-                <button id="copy-css-btn" class="flex gap-1 bg-gray-100 rounded shadow px-2 py-1 absolute right-2 top-2 hover:bg-gray-200 active:bg-gray-300">
+            <div
+                class="bg-white p-4 shadow rounded flex gap-4 flex-col relative min-h-[20rem] lg:col-start-1 lg:col-end-3 2xl:col-start-auto 2xl:col-end-auto"
+                >
+                <button
+                    id="copy-css-btn"
+                    class="flex gap-1 bg-gray-100 rounded shadow px-2 py-1 absolute right-2 top-2 hover:bg-gray-200 active:bg-gray-300"
+                    >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -472,7 +483,9 @@
                 <style>
                     body pre code.hljs { padding: 0; }
                 </style>
-                <pre class="text-xs language-css max-h-[70vh] overflow-auto"><code id="css-output"></code></pre>
+                <pre class="text-xs language-css max-h-[70vh] overflow-auto">
+                    <code id="css-output"></code>
+                </pre>
             </div>
         </div>
         
