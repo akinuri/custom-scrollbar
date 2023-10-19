@@ -35,7 +35,7 @@
             <div
                 id="preview-card"
                 class="p-4 shadow rounded flex gap-4 flex-col"
-                style="--preview-bg: white; background-color: var(--preview-bg)"
+                style="--preview-bg: white; background-color: var(--preview-bg); --preview-text-color: #334155; color: var(--preview-text-color)"
                 >
                 <div class="overflow-auto min-h-[20rem] max-h-[60vh] preview">
                     <div class="flex gap-4 flex-col w-[125%]">
@@ -72,6 +72,18 @@
                                     type="color"
                                     id="preview-background-input"
                                     value="#ffffff"
+                                    class="w-20 border rounded px-1 bg-slate-50 text-slate-600 placeholder:text-slate-300 hover:border-blue-300 hover:placeholder:text-slate-400/60 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-300 focus:placeholder:text-slate-400/70"
+                                    >
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="pr-4">Text color</td>
+                            <td>
+                                <input
+                                    type="color"
+                                    id="preview-text-color-input"
+                                    value="#334155"
                                     class="w-20 border rounded px-1 bg-slate-50 text-slate-600 placeholder:text-slate-300 hover:border-blue-300 hover:placeholder:text-slate-400/60 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-300 focus:placeholder:text-slate-400/70"
                                     >
                             </td>

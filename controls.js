@@ -1,6 +1,7 @@
 let controls = {
     "preview" : {
         "background-color" : null,
+        "text-color" : null,
     },
     "scrollbar" : {
         "width" : {
@@ -79,6 +80,11 @@ sl.onAllLoaded(() => {
     controls.preview["background-color"] = qs("#preview-background-input");
     on(controls.preview["background-color"], "input", function () {
         qs("#preview-card").style.setProperty("--preview-bg", this.value);
+    });
+    
+    controls.preview["text-color"] = qs("#preview-text-color-input");
+    on(controls.preview["text-color"], "input", function () {
+        qs("#preview-card").style.setProperty("--preview-text-color", this.value);
     });
     
     
